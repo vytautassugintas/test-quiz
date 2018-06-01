@@ -43,3 +43,49 @@ Add item favoriting:
 - You can use [ES6 features](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#supported-language-features-and-polyfills)
 - You can change Create React App or Express.js configs/setup as you like
 - You can use any framework for CSS or just write your own styles. Don't need to totally match given examples
+
+### Mini backlog
+Observations from ```items.json```
+- not all items are unique
+- not all of them have price
+------
+- [ ] filter duplicate items in server side
+- [ ] return when all items was fetched
+- [ ] service: add favorite item
+- [ ] save favourite item id
+- [ ] save to file (json)
+-------
+- [ ] items reducer
+- [ ] holds fetched items
+- [ ] holds favourite items ids
+- [ ] checks if fetched items contains favoutire
+-------
+- [ ] item reducer
+- [ ] loads single item
+- [ ] works as cache for already visited items
+-------
+- [ ] card component
+- [ ] card can have image
+- [ ] card can have buttons
+- [ ] card can have price slot and favourite icon
+- [ ] card can have header and details slot
+- [ ] favourite can be displayed either on top or bottom
+- [ ] handles hover over favourite event
+- [ ] callback when favourite was clicked
+- [ ] callback when image was clicked
+-------
+- [ ] browse container
+- [ ] it should store variables how many items should be fetched
+- [ ] displays items and handles on click events
+- [ ] handle favourite click (dispatches action with item id) 
+- [ ] handles item image click (changes route to item container and ataches item id)
+- [ ] contains list of items (component which renders list)
+- [ ] list contains list item (component which renders single card)
+-------
+- [ ] item container
+- [ ] fetches or uses already checked single item data from item reducer
+- [ ] show three different cards
+- [ ] handles favourite click (dispatches action with item id)
+------
+- [ ] tools that i need: redux, redux-thunk, react-router, axios?(maybe fetch is enough)
+------
