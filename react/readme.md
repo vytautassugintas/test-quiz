@@ -46,11 +46,8 @@ Add item favoriting:
 
 ### Mini backlog
 Observations from ```items.json```
-- not all items are unique
 - not all of them have price
 ------
-- [ ] filter duplicate items in server side
-- [ ] return when all items was fetched
 - [ ] service: add favorite item
 - [ ] save favourite item id
 - [ ] save to file (json)
