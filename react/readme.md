@@ -64,12 +64,12 @@ Observations from ```items.json```
 - [ ] loads single item
 - [ ] works as cache for already visited items
 -------
-- [ ] card component
-- [ ] card can have image
-- [ ] card can have buttons
-- [ ] card can have price slot and favourite icon
+- [x] card component
+- [x] card can have image
+- [x] card can have buttons
+- [x] card can have price slot and favourite icon
 - [ ] card can have header and details slot
-- [ ] favourite can be displayed either on top or bottom
+- [x] favourite can be displayed either on top or bottom
 - [ ] handles hover over favourite event
 - [ ] callback when favourite was clicked
 - [ ] callback when image was clicked
