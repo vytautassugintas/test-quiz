@@ -19,13 +19,13 @@ class ItemContainer extends Component {
         ? <span>This should be loader</span>
         : <div className="container">
             <div className="columns">
-              <div className="column is-one-third">
+              <div className="column is-one-third is-paddingless">
                 <Card
                   id={item.id}
                   image={item.image}
                 />
               </div>
-              <div className="column">
+              <div className="column is-paddingless">
                 <Card
                   withHeader
                   withButtons

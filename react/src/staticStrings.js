@@ -6,6 +6,11 @@ const StaticStrings = {
       loadMore: 'Load more'
     }
   },
+  page: {
+   title: {
+     browsePage: 'Browse Page'
+   }
+  },
   unknownPrice: 'Price upon request',
   measurements: 'Measurements:',
   creators: 'Creator:'

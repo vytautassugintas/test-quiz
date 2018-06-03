@@ -36,7 +36,7 @@ class Card extends Component {
       : 'has-text-centered'
 
     return (
-      <div className="card margins-md">
+      <div className={"card margins-md"}>
         <div className={`card-content ${textAlignmentClass}`}>
           { image
               ? <div>
@@ -47,7 +47,7 @@ class Card extends Component {
                           <ButtonAddFavourite id={id} />
                         </span>
                   }
-                  <img onClick={onImageClick} src={ image } alt={ image }/>
+                  <img style={{cursor: 'pointer'}} onClick={onImageClick} src={ image } alt={ image }/>
                 </div>
               : null
           }
