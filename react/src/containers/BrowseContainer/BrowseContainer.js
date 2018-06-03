@@ -42,15 +42,20 @@ class BrowseContainer extends Component {
   }
 
   render() {
-    const { items } = this.props.shopItems;
+    const { items, isLoadMoreVissible } = this.props.shopItems;
 
     return (
       <div className="container">
         <ItemsList onItemClick={ this.handleItemClick } items={ items }/>
         <div className="has-text-centered">
-          <a onClick={ this.handleLoadMoreClick } className="button is-rounded is-outlined is-medium">
-            <span>{ staticStrings.button.label.loadMore.toUpperCase() }</span>
-          </a>
+        {
+          isLoadMoreVissible
+           ? <a onClick={ this.handleLoadMoreClick } className="button is-rounded is-outlined is-medium">
+                <span>{ staticStrings.button.label.loadMore.toUpperCase() }</span>
+              </a>
+           : null
+        }
+          
         </div>
       </div>
     );

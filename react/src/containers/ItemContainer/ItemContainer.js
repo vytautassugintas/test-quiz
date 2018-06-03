@@ -16,7 +16,7 @@ class ItemContainer extends Component {
     const { isLoading, item } = this.props.item;
     return (
       isLoading
-        ? null
+        ? <span>This should be loader</span>
         : <div className="container">
             <div className="columns">
               <div className="column is-one-third">

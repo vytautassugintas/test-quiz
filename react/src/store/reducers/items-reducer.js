@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   start: 0,
   limit: 9,
   isLoading: false,
+  isLoadMoreVissible: true,
   error: undefined
 };
 
@@ -26,6 +27,7 @@ function itemsReducer(state = INITIAL_STATE, action) {
       const { start, limit, items, totalItems = 0 } = action.payload;
       return Object.assign({}, state, {
         isLoading: false,
+        isLoadMoreVissible: limit < totalItems,
         start,
         limit,
         items: [...state.items, ...items],
