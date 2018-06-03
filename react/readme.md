@@ -69,14 +69,13 @@ Observations from ```items.json```
 - [x] favourite can be displayed either on top or bottom
 - [ ] handles hover over favourite event
 - [ ] callback when favourite was clicked
-- [ ] callback when image was clicked
+- [x] callback when image was clicked
 -------
 - [x] browse container
 - [x] it should store variables how many items should be fetched
-- [ ] displays items and handles on click events
 - [ ] handle favourite click (dispatches action with item id) 
-- [ ] handles item image click (changes route to item container and ataches item id)
-- [ ] contains list of items (component which renders list)
+- [x] handles item image click (changes route to item container and ataches item id)
+- [x] contains list of items (component which renders list)
 -------
 - [x] item container
 - [ ] fetches or uses already checked single item data from item reducer

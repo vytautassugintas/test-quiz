@@ -17,6 +17,7 @@ class Card extends Component {
       price,
       withButtons,
       showPrice,
+      onImageClick
     } = this.props;
 
     return (
@@ -31,7 +32,7 @@ class Card extends Component {
                           <i className="far fa-heart"/>
                         </span>
                   }
-                  <img src={ image } alt={ image }/>
+                  <img onClick={onImageClick} src={ image } alt={ image }/>
                 </div>
               : null
           }
@@ -76,7 +77,8 @@ Card.propTypes = {
   price: PropTypes.object,
   showPrice: PropTypes.bool,
   image: PropTypes.string,
-  withButtons: PropTypes.bool
+  withButtons: PropTypes.bool,
+  onImageClick: PropTypes.func
 };
 
 export default Card;

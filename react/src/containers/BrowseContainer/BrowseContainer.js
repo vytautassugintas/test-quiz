@@ -12,6 +12,7 @@ class BrowseContainer extends Component {
   constructor(props){
     super(props);
     this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
+    this.handleItemClick = this.handleItemClick.bind(this);
   }
 
   componentDidMount(){
@@ -36,12 +37,16 @@ class BrowseContainer extends Component {
     }));
   }
 
+  handleItemClick(id){
+    this.props.history.push(`item/${id}`);
+  }
+
   render() {
     const { items } = this.props.shopItems;
 
     return (
       <div className="container">
-        <ItemsList items={ items }/>
+        <ItemsList onItemClick={ this.handleItemClick } items={ items }/>
         <div className="has-text-centered">
           <a onClick={ this.handleLoadMoreClick } className="button is-rounded is-outlined is-medium">
             <span>{ staticStrings.button.label.loadMore.toUpperCase() }</span>
@@ -55,6 +60,7 @@ class BrowseContainer extends Component {
 BrowseContainer.propTypes = {
   dispatch: PropTypes.func,
   shopItems: PropTypes.object,
+  history: PropTypes.object
 };
 
 const mapStateToProps = state => ({

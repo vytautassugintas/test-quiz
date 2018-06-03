@@ -11,11 +11,12 @@ class ItemList extends Component {
         {
           items.map(item => (
             <Card
+              showPrice
               key={ item.id }
               id={ item.id }
               image={ item.image }
-              showPrice={ true }
               price={ item.price }  
+              onImageClick={() => this.props.onItemClick(item.id)}
             />
           ))
         }
@@ -25,7 +26,8 @@ class ItemList extends Component {
 }
 
 ItemList.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
+  onItemClick: PropTypes.func
 }
 
 export default ItemList;
