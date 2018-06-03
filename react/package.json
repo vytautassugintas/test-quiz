@@ -29,6 +29,7 @@
     "homepage": "https://github.com/1stdibs/front-end-quiz#readme",
     "dependencies": {
         "axios": "^0.18.0",
+        "bulma": "^0.7.1",
         "express": "^4.16.3",
         "prop-types": "^15.6.1",
         "react": "^16.4.0",
