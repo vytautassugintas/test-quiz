@@ -87,5 +87,5 @@ Observations from ```items.json```
 - [ ] show three different cards
 - [ ] handles favourite click (dispatches action with item id)
 ------
-- [ ] tools that i need: redux, redux-thunk, react-router, axios?(maybe fetch is enough)
+- [x] tools that i need: redux, redux-thunk, react-router, axios?(maybe fetch is enough)
 ------
