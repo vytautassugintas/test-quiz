@@ -7,7 +7,7 @@ class Card extends Component {
   getPrice(price) {
     return price
       ? price.amounts.USD
-      : StaticStrings.priceUnknown
+      : StaticStrings.unknownPrice
   }
 
   render() {
@@ -15,16 +15,17 @@ class Card extends Component {
       id,
       image,
       price,
-      withButtons
+      withButtons,
+      showPrice,
     } = this.props;
 
     return (
-      <div className="card">
+      <div className="card margins-md">
         <div className="card-content has-text-centered">
           { image
               ? <div>
                   {
-                    price
+                    showPrice
                       ? null
                       : <span className="is-pulled-right">
                           <i className="far fa-heart"/>
@@ -35,7 +36,7 @@ class Card extends Component {
               : null
           }
           {
-            price
+            showPrice
               ? itemPrice(this.getPrice(price))
               : null
           }
@@ -73,6 +74,7 @@ const cardButtons = (
 Card.propTypes = {
   id: PropTypes.string,
   price: PropTypes.object,
+  showPrice: PropTypes.bool,
   image: PropTypes.string,
   withButtons: PropTypes.bool
 };

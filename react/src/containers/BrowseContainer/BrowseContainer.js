@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import actions from '../../store/actions';
 import staticStrings from '../../staticStrings';
+import ItemsList from './ItemsList';
 
 const ITEMS_TO_LOAD = 9;
 
@@ -36,12 +37,14 @@ class BrowseContainer extends Component {
   }
 
   render() {
+    const { items } = this.props.shopItems;
+
     return (
       <div className="container">
-        This is Browse
+        <ItemsList items={ items }/>
         <div className="has-text-centered">
-          <a onClick={this.handleLoadMoreClick} className="button is-rounded is-outlined is-medium">
-            <span>{staticStrings.button.label.loadMore.toUpperCase()}</span>
+          <a onClick={ this.handleLoadMoreClick } className="button is-rounded is-outlined is-medium">
+            <span>{ staticStrings.button.label.loadMore.toUpperCase() }</span>
           </a>
         </div>
       </div>
