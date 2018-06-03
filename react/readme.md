@@ -55,8 +55,8 @@ Observations from ```items.json```
 - [ ] save favourite item id
 - [ ] save to file (json)
 -------
-- [ ] items reducer
-- [ ] holds fetched items
+- [x] items reducer
+- [x] holds fetched items
 - [ ] holds favourite items ids
 - [ ] checks if fetched items contains favoutire
 -------
