@@ -75,12 +75,11 @@ Observations from ```items.json```
 - [ ] callback when image was clicked
 -------
 - [x] browse container
-- [ ] it should store variables how many items should be fetched
+- [x] it should store variables how many items should be fetched
 - [ ] displays items and handles on click events
 - [ ] handle favourite click (dispatches action with item id) 
 - [ ] handles item image click (changes route to item container and ataches item id)
 - [ ] contains list of items (component which renders list)
-- [ ] list contains list item (component which renders single card)
 -------
 - [x] item container
 - [ ] fetches or uses already checked single item data from item reducer

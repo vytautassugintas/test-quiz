@@ -1,5 +1,5 @@
 import itemsReducer from './items-reducer';
-import * as actions from '../actions/actions';
+import actions from '../actions';
 
 it('should set state to loading when fetch request action dispatched', () => {
   expect(
