@@ -1,0 +1,8 @@
+.button-add-favorite {
+  border: 0;
+  cursor: pointer;
+}
+
+.button-add-favorite.fa-heart:hover {
+  color: #eb4d4b;
+}

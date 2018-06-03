@@ -20,7 +20,6 @@ function itemReducer(state = INITIAL_STATE, action) {
       });
 
     case actionTypes.FETCH_ITEM_SUCCESS:
-      const { start, limit, items, totalItems = 0 } = action.payload;
       return Object.assign({}, state, {
         isLoading: false,
         item: action.payload

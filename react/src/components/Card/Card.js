@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import StaticStrings from '../../staticStrings';
+import ButtonAddFavourite from '../ButtonAddFavourite';
 
 const measurementsStyle = {
   lineHeight: 1.3
@@ -43,7 +44,7 @@ class Card extends Component {
                     showPriceInline
                       ? null
                       : <span className="is-pulled-right">
-                          <i className="far fa-heart"/>
+                          <ButtonAddFavourite id={id} />
                         </span>
                   }
                   <img onClick={onImageClick} src={ image } alt={ image }/>
@@ -52,7 +53,7 @@ class Card extends Component {
           }
           {
             showPriceInline
-              ? itemPrice(this.getPrice(price))
+              ? itemPrice(this.getPrice(price), id)
               : null
           }
           {
@@ -86,11 +87,11 @@ class Card extends Component {
   }
 }
 
-const itemPrice = price => (
+const itemPrice = (price, id) => (
   <div style={ {paddingBottom: 12} }>
     <span className="is-pulled-left">{ price }</span>
     <span className="is-pulled-right">
-      <i className="far fa-heart"/>
+      <ButtonAddFavourite id={id} />
     </span>
   </div>
 )

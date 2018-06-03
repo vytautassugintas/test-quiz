@@ -21,7 +21,8 @@ class ItemContainer extends Component {
             <div className="columns">
               <div className="column is-one-third">
                 <Card
-                  image={ item.image }
+                  id={item.id}
+                  image={item.image}
                 />
               </div>
               <div className="column">
