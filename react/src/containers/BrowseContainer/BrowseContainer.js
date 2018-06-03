@@ -46,12 +46,12 @@ class BrowseContainer extends Component {
 
     return (
       <div className="container">
-        <ItemsList onItemClick={ this.handleItemClick } items={ items }/>
+        <ItemsList onItemClick={this.handleItemClick} items={items}/>
         <div className="has-text-centered">
         {
           isLoadMoreVissible
-           ? <a onClick={ this.handleLoadMoreClick } className="button is-rounded is-outlined is-medium">
-                <span>{ staticStrings.button.label.loadMore.toUpperCase() }</span>
+           ? <a onClick={this.handleLoadMoreClick} className="button is-rounded is-outlined is-medium">
+                <span>{staticStrings.button.label.loadMore.toUpperCase()}</span>
               </a>
            : null
         }

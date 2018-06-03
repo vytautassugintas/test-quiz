@@ -38,25 +38,7 @@ class Card extends Component {
     return (
       <div className={"card margins-md"}>
         <div className={`card-content ${textAlignmentClass}`}>
-          { image
-              ? <div>
-                  {
-                    showPriceInline
-                      ? null
-                      : <span className="is-pulled-right">
-                          <ButtonAddFavourite id={id} />
-                        </span>
-                  }
-                  <img style={{cursor: 'pointer'}} onClick={onImageClick} src={ image } alt={ image }/>
-                </div>
-              : null
-          }
-          {
-            showPriceInline
-              ? itemPrice(this.getPrice(price), id)
-              : null
-          }
-          {
+        {
             withHeader
               ? <div>
                   <h2 className="is-size-4">{header}</h2>
@@ -72,8 +54,33 @@ class Card extends Component {
             withDescription
               ? <div>
                   <p>{description}</p>
-                  <p style={{paddingTop: 12}}><strong>{StaticStrings.creators}</strong> {creators}</p>
+                  <p style={{paddingTop: 12}}>
+                    <strong>{StaticStrings.creators}</strong> {creators}
+                  </p>
                 </div>
+              : null
+          }
+          { image
+              ? <div>
+                  {
+                    showPriceInline
+                      ? null
+                      : <span className="is-pulled-right">
+                          <ButtonAddFavourite id={id} />
+                        </span>
+                  }
+                  <img
+                    onClick={onImageClick} 
+                    style={{cursor: 'pointer'}}
+                    src={image} 
+                    alt={image}
+                  />
+                </div>
+              : null
+          }
+          {
+            showPriceInline
+              ? itemPrice(this.getPrice(price), id)
               : null
           }
         </div>
@@ -88,8 +95,8 @@ class Card extends Component {
 }
 
 const itemPrice = (price, id) => (
-  <div style={ {paddingBottom: 12} }>
-    <span className="is-pulled-left">{ price }</span>
+  <div style={{paddingBottom: 12}}>
+    <span className="is-pulled-left">{price}</span>
     <span className="is-pulled-right">
       <ButtonAddFavourite id={id} />
     </span>
@@ -98,11 +105,11 @@ const itemPrice = (price, id) => (
 
 const cardButtons = (
   <footer className="card-footer">
-    <a href="#" className="card-footer-item">
-      { StaticStrings.button.label.purchase }
+    <a className="card-footer-item">
+      {StaticStrings.button.label.purchase}
     </a>
-    <a href="#" className="card-footer-item">
-      { StaticStrings.button.label.makeOffer }
+    <a className="card-footer-item">
+      {StaticStrings.button.label.makeOffer}
     </a>
   </footer>
 )

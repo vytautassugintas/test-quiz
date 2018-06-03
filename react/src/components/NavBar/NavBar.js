@@ -30,13 +30,13 @@ class NavBar extends Component {
   }
 
   render() {
-    const { item } = this.props.selectedItem;
+    const { item, isLoading } = this.props.selectedItem;
     const showSellerLogo = this.props.location.pathname !== '/';
 
     return (
       <nav style={navStyle} role="navigation" aria-label="main navigation">
         {
-          showSellerLogo
+          showSellerLogo && !isLoading
             ? <div className="has-text-centered">
                 <span style={{cursor: 'pointer'}} className="is-pulled-left">
                   <i 

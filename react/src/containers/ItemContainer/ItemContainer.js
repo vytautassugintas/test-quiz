@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import Card from '../../components/Card';
 import actions from '../../store/actions'
-import * as api from '../../api';
 
 class ItemContainer extends Component {
 
