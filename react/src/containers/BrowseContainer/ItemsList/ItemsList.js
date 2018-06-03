@@ -11,7 +11,7 @@ class ItemList extends Component {
         {
           items.map(item => (
             <Card
-              showPrice
+              showPriceInline
               key={ item.id }
               id={ item.id }
               image={ item.image }
