@@ -22,7 +22,7 @@ function itemReducer(state = INITIAL_STATE, action) {
     case actionTypes.FETCH_ITEM_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
-        item: action.payload
+        item: Object.assign({}, action.payload)
       });
 
     default:

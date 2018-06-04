@@ -48,39 +48,37 @@ Add item favoriting:
 Observations from ```items.json```
 - not all of them have price
 ------
-- [ ] service: add favorite item
-- [ ] save favourite item id
-- [ ] save to file (json)
+- [x] service: add favorite item
+- [x] save favourite item id
+- [x] save to file (json)
 -------
 - [x] items reducer
 - [x] holds fetched items
-- [ ] holds favourite items ids
-- [ ] checks if fetched items contains favoutire
+- ~~[ ] holds favourite items ids~~
+- ~~[ ] checks if fetched items contains favoutire~~
 -------
-- [ ] item reducer
-- [ ] loads single item
-- [ ] works as cache for already visited items
+- [x] item reducer
+- [x] loads single item
+- ~~[ ] works as cache for already visited items~~
 -------
 - [x] card component
 - [x] card can have image
 - [x] card can have buttons
 - [x] card can have price slot and favourite icon
-- [ ] card can have header and details slot
+- [x] card can have header and details slot
 - [x] favourite can be displayed either on top or bottom
-- [ ] handles hover over favourite event
-- [ ] callback when favourite was clicked
 - [x] callback when image was clicked
 -------
 - [x] browse container
 - [x] it should store variables how many items should be fetched
-- [ ] handle favourite click (dispatches action with item id) 
+- [x] handle favourite click (dispatches action with item id) 
 - [x] handles item image click (changes route to item container and ataches item id)
 - [x] contains list of items (component which renders list)
 -------
 - [x] item container
-- [ ] fetches or uses already checked single item data from item reducer
-- [ ] show three different cards
-- [ ] handles favourite click (dispatches action with item id)
+- [x] fetches or uses already checked single item data from item reducer
+- [x] show three different cards
+- [x] handles favourite click (dispatches action with item id)
 ------
 - [x] tools that i need: redux, redux-thunk, react-router, axios?(maybe fetch is enough)
 ------
