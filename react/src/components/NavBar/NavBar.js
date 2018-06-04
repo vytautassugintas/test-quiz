@@ -34,7 +34,7 @@ class NavBar extends Component {
     const showSellerLogo = this.props.location.pathname !== '/';
 
     return (
-      <nav style={navStyle} role="navigation" aria-label="main navigation">
+      <nav style={navStyle} aria-label="main navigation">
         {
           showSellerLogo && !isLoading
             ? <div className="has-text-centered">
@@ -44,7 +44,7 @@ class NavBar extends Component {
                     onClick={this.routeHome}  
                   />
                 </span>
-                <img src={this.getSellerLogo(item)}/>
+                <img src={this.getSellerLogo(item)} alt={`company ${item.seller.company} logo`}/>
               </div>
             : <p className="is-size-5 has-text-centered">{staticStrings.page.title.browsePage}</p>
         }

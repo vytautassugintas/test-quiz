@@ -6,6 +6,13 @@ import Card from '../../components/Card';
 import actions from '../../store/actions'
 
 class ItemContainer extends Component {
+  static get propTypes() {
+    return {
+      match: PropTypes.object.isRequired,
+      dispatch: PropTypes.func.isRequired,
+      item: PropTypes.object.isRequired
+    }
+  }
 
   componentDidMount(){
     this.props.dispatch(actions.fetchItem(this.props.match.params.id));
@@ -15,7 +22,9 @@ class ItemContainer extends Component {
     const { isLoading, item } = this.props.item;
     return (
       isLoading
-        ? <span>This should be loader</span>
+        ? <div className="has-text-centered">
+            This should be loader
+          </div>
         : <div className="container">
             <div className="columns">
               <div className="column is-one-third is-paddingless">
@@ -39,12 +48,6 @@ class ItemContainer extends Component {
           </div>
     );
   }
-}
-
-ItemContainer.propTypes = {
-  match: PropTypes.object,
-  dispatch: PropTypes.func,
-  item: PropTypes.object
 }
 
 const mapStateToProps = state => ({

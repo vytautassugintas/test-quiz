@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import Card from '../../../components/Card';
 
 class ItemList extends Component {
+  static get propTypes(){
+    return {
+      items: PropTypes.array.isRequired,
+      onItemClick: PropTypes.func.isRequired
+    }
+  }
+
   render() {
     const { items } = this.props;
 
@@ -22,11 +29,6 @@ class ItemList extends Component {
       </div>
     );
   }
-}
-
-ItemList.propTypes = {
-  items: PropTypes.array.isRequired,
-  onItemClick: PropTypes.func
 }
 
 export default ItemList;

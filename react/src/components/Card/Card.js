@@ -3,11 +3,22 @@ import PropTypes from 'prop-types';
 import StaticStrings from '../../staticStrings';
 import ButtonAddFavourite from '../ButtonAddFavourite';
 
-const measurementsStyle = {
-  lineHeight: 1.3
-}
-
 class Card extends Component {
+  static get propTypes(){
+    return {
+      onImageClick: PropTypes.func,
+      withButtons: PropTypes.bool,
+      withHeader: PropTypes.bool,
+      withDescription: PropTypes.bool,
+      withImage: PropTypes.bool,
+      showPriceInline: PropTypes.bool,
+      item: PropTypes.object.isRequired
+    }
+  }
+
+  shouldComponentUpdate(nextProps){
+    return this.props.item.id !== nextProps.item.id;
+  }
   
   getPrice(price) {
     return price
@@ -38,7 +49,7 @@ class Card extends Component {
               ? <div>
                   <h2 className="is-size-4">{item.title}</h2>
                   <h3 className="is-size-5">{this.getPrice(item.price)}</h3>
-                  <div className="pading-top-md" style={measurementsStyle}>
+                  <div className="pading-top-md" style={{lineHeight: 1.3}}>
                     <p><strong>{StaticStrings.measurements}</strong></p>
                     <p>{item.measurements.display}</p>
                   </div>
@@ -86,33 +97,19 @@ class Card extends Component {
         </div>
         {
           withButtons
-            ? cardButtons
+            ? <footer className="card-footer">
+                <a className="card-footer-item">
+                  {StaticStrings.button.label.purchase}
+                </a>
+                <a className="card-footer-item">
+                  {StaticStrings.button.label.makeOffer}
+                </a>
+              </footer>
             : null
         }
       </div>
     );
   }
 }
-
-const cardButtons = (
-  <footer className="card-footer">
-    <a className="card-footer-item">
-      {StaticStrings.button.label.purchase}
-    </a>
-    <a className="card-footer-item">
-      {StaticStrings.button.label.makeOffer}
-    </a>
-  </footer>
-)
-
-Card.propTypes = {
-  onImageClick: PropTypes.func,
-  withButtons: PropTypes.bool,
-  withHeader: PropTypes.bool,
-  withDescription: PropTypes.bool,
-  withImage: PropTypes.bool,
-  showPriceInline: PropTypes.bool,
-  item: PropTypes.object.isRequired
-};
 
 export default Card;

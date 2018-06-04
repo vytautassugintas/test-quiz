@@ -6,10 +6,19 @@ import actions from '../../store/actions';
 import './ButtonAddFavourite.css';
 
 class ButtonAddFavourite extends Component {
+  static get propTypes(){
+    return {
+      id: PropTypes.string.isRequired,
+      favourites: PropTypes.object.isRequired,
+      dispatch: PropTypes.func.isRequired
+    }
+  }
+
   constructor(props){
     super(props);
+    const { id, favourites } = this.props;
     this.state = {
-      isFavourite: this.props.favourites.favourites.includes(this.props.id)
+      isFavourite: favourites.items.includes(id)
     }
   }
   
@@ -31,7 +40,7 @@ class ButtonAddFavourite extends Component {
   }
 
   render() {
-    const { id, favourites } = this.props;
+    const { id } = this.props;
     const { isFavourite } = this.state;
 
     const heartClass = isFavourite ? 'fas fa-heart is-red' : 'far fa-heart';
@@ -44,12 +53,6 @@ class ButtonAddFavourite extends Component {
     );
   }
 }
-
-ButtonAddFavourite.propTypes = {
-  id: PropTypes.string.isRequired,
-  favourites: PropTypes.object,
-  dispatch: PropTypes.func
-};
 
 const mapStateToProps = state => ({
   favourites: state.favourites

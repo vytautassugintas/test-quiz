@@ -1,5 +1,4 @@
 import * as actionTypes from './action-types'
-
 import * as api from '../../api'
 
 export const fetchItemsRequest = () => ({
@@ -32,11 +31,6 @@ export const fetchItemSuccess = payload => ({
 
 export const fetchFavouritesRequest = () => ({
   type: actionTypes.FETCH_FAVOURITES_REQUEST
-})
-
-export const fetchFavouritesFailure = reason => ({
-  type: actionTypes.FETCH_FAVOURITES_FAILURE,
-  reason
 })
 
 export const fetchFavouritesSuccess = payload => ({
@@ -81,11 +75,6 @@ export function fetchFavourites(){
       .then(response => { 
         dispatch(fetchFavouritesSuccess(response.data))
       })
-      .catch(reason => {
-        dispatch(fetchFavouritesFailure(reason.data))
-      })
-    
-    return true;
   }
 }
 

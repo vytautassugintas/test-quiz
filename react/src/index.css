@@ -8,6 +8,10 @@ body {
   margin: 12px;
 }
 
+.padding-md {
+  padding: 12px
+}
+
 .pading-top-md {
   padding-top: 12px
 }

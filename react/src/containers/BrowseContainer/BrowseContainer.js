@@ -9,6 +9,14 @@ import ItemsList from './ItemsList';
 const ITEMS_TO_LOAD = 9;
 
 class BrowseContainer extends Component {
+  static get propTypes() {
+    return {
+      dispatch: PropTypes.func.isRequired,
+      shopItems: PropTypes.object.isRequired,
+      history: PropTypes.object.isRequired
+    }
+  }
+
   constructor(props){
     super(props);
     this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
@@ -47,7 +55,7 @@ class BrowseContainer extends Component {
     return (
       <div className="container">
         <ItemsList onItemClick={this.handleItemClick} items={items}/>
-        <div className="has-text-centered">
+        <div className="has-text-centered padding-md">
         {
           isLoadMoreVissible
            ? <a onClick={this.handleLoadMoreClick} className="button is-rounded is-outlined is-medium">
@@ -61,12 +69,6 @@ class BrowseContainer extends Component {
     );
   }
 }
-
-BrowseContainer.propTypes = {
-  dispatch: PropTypes.func,
-  shopItems: PropTypes.object,
-  history: PropTypes.object
-};
 
 const mapStateToProps = state => ({
   shopItems: state.shopItems
