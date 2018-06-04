@@ -9,6 +9,16 @@ export default {
       data: 'data'
     });
   }),
+  post: jest.fn((url) => {
+    return Promise.resolve({
+      data: 'data'
+    });
+  }),
+  delete: jest.fn((url) => {
+    return Promise.resolve({
+      data: 'data'
+    });
+  }),
   create: jest.fn(function () {
     return this;
   })
