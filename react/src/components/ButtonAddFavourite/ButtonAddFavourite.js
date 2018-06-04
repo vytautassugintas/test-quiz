@@ -1,38 +1,44 @@
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import actions from '../../store/actions';
 import './ButtonAddFavourite.css';
 
 class ButtonAddFavourite extends Component {
   constructor(props){
     super(props);
     this.state = {
-      heartClass: 'far fa-heart'
+      isFavourite: this.props.favourites.favourites.includes(this.props.id)
     }
   }
   
-  handleMouseOver(e) {
-    this.setState({heartClass : 'fas fa-heart'})
-  }
-
-  handleMouseOut(e) {
-    this.setState({heartClass : 'far fa-heart'})
-  }
-
   handleClick(id) {
-    // TODO: save item to favourites
-    console.log(id);
+    this.setState({
+      isFavourite: !this.state.isFavourite
+    },
+    () => {
+      if (this.state.isFavourite){
+        this.props.dispatch(actions.addFavourite(id));
+      } else {
+        this.props.dispatch(actions.removeFavouriteById(id));
+      }
+    });
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    return this.state.isFavourite !== nextState.isFavourite;
   }
 
   render() {
-    const { id } = this.props;
-    const { heartClass = 'far fa-heart' } = this.state;
+    const { id, favourites } = this.props;
+    const { isFavourite } = this.state;
+
+    const heartClass = isFavourite ? 'fas fa-heart is-red' : 'far fa-heart';
 
     return (
         <i
           onClick={() => this.handleClick(id)}
-          onMouseEnter={this.handleMouseOver.bind(this)}
-          onMouseLeave={this.handleMouseOut.bind(this)}
           className={`button-add-favorite ${heartClass}`}
         />
     );
@@ -40,7 +46,13 @@ class ButtonAddFavourite extends Component {
 }
 
 ButtonAddFavourite.propTypes = {
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  favourites: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
-export default ButtonAddFavourite;
+const mapStateToProps = state => ({
+  favourites: state.favourites
+})
+
+export default connect(mapStateToProps)(ButtonAddFavourite);

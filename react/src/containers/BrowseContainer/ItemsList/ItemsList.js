@@ -12,10 +12,9 @@ class ItemList extends Component {
           items.map(item => (
             <Card
               showPriceInline
+              withImage
               key={item.id}
-              id={item.id}
-              image={item.image}
-              price={item.price}  
+              item={item}
               onImageClick={() => this.props.onItemClick(item.id)}
             />
           ))

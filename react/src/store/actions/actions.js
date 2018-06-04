@@ -1,30 +1,51 @@
-import {
-  FETCH_ITEMS_REQUEST,
-  FETCH_ITEMS_FAILURE,
-  FETCH_ITEMS_SUCCESS,
-  FETCH_ITEM_REQUEST,
-  FETCH_ITEM_FAILURE,
-  FETCH_ITEM_SUCCESS
-} from './action-types'
+import * as actionTypes from './action-types'
 
 import * as api from '../../api'
 
 export const fetchItemsRequest = () => ({
-  type: FETCH_ITEMS_REQUEST
+  type: actionTypes.FETCH_ITEMS_REQUEST
 })
 
 export const fetchItemsFailure = reason => ({
-  type: FETCH_ITEMS_FAILURE,
+  type: actionTypes.FETCH_ITEMS_FAILURE,
   reason
 })
 
 export const fetchItemsSuccess = payload => ({
-  type: FETCH_ITEMS_SUCCESS,
+  type: actionTypes.FETCH_ITEMS_SUCCESS,
+  payload
+})
+
+export const fetchItemRequest = () => ({
+  type: actionTypes.FETCH_ITEM_REQUEST
+})
+
+export const fetchItemFailure = reason => ({
+  type: actionTypes.FETCH_ITEM_FAILURE,
+  reason
+})
+
+export const fetchItemSuccess = payload => ({
+  type: actionTypes.FETCH_ITEM_SUCCESS,
+  payload
+})
+
+export const fetchFavouritesRequest = () => ({
+  type: actionTypes.FETCH_FAVOURITES_REQUEST
+})
+
+export const fetchFavouritesFailure = reason => ({
+  type: actionTypes.FETCH_FAVOURITES_FAILURE,
+  reason
+})
+
+export const fetchFavouritesSuccess = payload => ({
+  type: actionTypes.FETCH_FAVOURITES_SUCCESS,
   payload
 })
 
 export function fetchItems({start = 0, limit = 9} = {}){
-  return function(dispatch) {
+  return function (dispatch, getState) {
     dispatch(fetchItemsRequest())
     return api.fetchItems({start, limit})
       .then(response => {
@@ -40,20 +61,6 @@ export function fetchItems({start = 0, limit = 9} = {}){
   }
 }
 
-export const fetchItemRequest = () => ({
-  type: FETCH_ITEM_REQUEST
-})
-
-export const fetchItemFailure = reason => ({
-  type: FETCH_ITEM_FAILURE,
-  reason
-})
-
-export const fetchItemSuccess = payload => ({
-  type: FETCH_ITEM_SUCCESS,
-  payload
-})
-
 export function fetchItem(id = {}){
   return function(dispatch) {
     dispatch(fetchItemRequest())
@@ -63,6 +70,45 @@ export function fetchItem(id = {}){
       })
       .catch(reason => {
         dispatch(fetchItemFailure(reason.data))
+      })
+  }
+}
+
+export function fetchFavourites(){
+  return function(dispatch) {
+    dispatch(fetchFavouritesRequest())
+    api.fetchFavourites()
+      .then(response => { 
+        dispatch(fetchFavouritesSuccess(response.data))
+      })
+      .catch(reason => {
+        dispatch(fetchFavouritesFailure(reason.data))
+      })
+    
+    return true;
+  }
+}
+
+export const addFavourite = id => {
+  return function (dispatch) {
+    api.addFavourite({id})
+      .then(() => {
+        dispatch({
+          type: actionTypes.ADD_FAVOURITE,
+          id
+        })
+      })
+  }
+}
+
+export const removeFavouriteById = id => {
+  return function(dispatch) {
+    api.removeFavourite({id})
+      .then(() => {
+        dispatch(({
+          type: actionTypes.REMOVE_FAVOURITE,
+          id
+        }))
       })
   }
 }

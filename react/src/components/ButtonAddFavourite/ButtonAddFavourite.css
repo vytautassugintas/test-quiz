@@ -5,3 +5,7 @@
 .button-add-favorite.fa-heart:hover {
   color: #eb4d4b;
 }
+
+.button-add-favorite.is-red {
+  color: #eb4d4b;
+}

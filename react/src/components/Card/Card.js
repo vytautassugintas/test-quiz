@@ -17,22 +17,17 @@ class Card extends Component {
 
   render() {
     const {
-      id,
-      image,
-      price,
-      withButtons,
-      showPriceInline,
+      item,
       onImageClick,
+      withButtons,
       withHeader,
-      header,
-      measurements,
       withDescription,
-      description,
-      creators
+      withImage,
+      showPriceInline,
     } = this.props;
 
     const textAlignmentClass = withHeader || withDescription
-      ? 'has-text-left'
+      ? 'has-text-left is-red'
       : 'has-text-centered'
 
     return (
@@ -41,11 +36,11 @@ class Card extends Component {
         {
             withHeader
               ? <div>
-                  <h2 className="is-size-4">{header}</h2>
-                  <h3 className="is-size-5">{this.getPrice(price)}</h3>
+                  <h2 className="is-size-4">{item.title}</h2>
+                  <h3 className="is-size-5">{this.getPrice(item.price)}</h3>
                   <div className="pading-top-md" style={measurementsStyle}>
                     <p><strong>{StaticStrings.measurements}</strong></p>
-                    <p>{measurements}</p>
+                    <p>{item.measurements.display}</p>
                   </div>
                 </div>
               : null
@@ -53,34 +48,39 @@ class Card extends Component {
           {
             withDescription
               ? <div>
-                  <p>{description}</p>
+                  <p>{item.description}</p>
                   <p style={{paddingTop: 12}}>
-                    <strong>{StaticStrings.creators}</strong> {creators}
+                    <strong>{StaticStrings.creators}</strong> {item.creators}
                   </p>
                 </div>
               : null
           }
-          { image
+          { withImage
               ? <div>
                   {
                     showPriceInline
                       ? null
                       : <span className="is-pulled-right">
-                          <ButtonAddFavourite id={id} />
+                          <ButtonAddFavourite id={item.id} />
                         </span>
                   }
                   <img
                     onClick={onImageClick} 
                     style={{cursor: 'pointer'}}
-                    src={image} 
-                    alt={image}
+                    src={item.image} 
+                    alt={item.title}
                   />
                 </div>
               : null
           }
           {
             showPriceInline
-              ? itemPrice(this.getPrice(price), id)
+              ? <div style={{paddingBottom: 12}}>
+                  <span className="is-pulled-left">{this.getPrice(item.price)}</span>
+                  <span className="is-pulled-right">
+                    <ButtonAddFavourite id={item.id} />
+                  </span>
+                </div>
               : null
           }
         </div>
@@ -93,15 +93,6 @@ class Card extends Component {
     );
   }
 }
-
-const itemPrice = (price, id) => (
-  <div style={{paddingBottom: 12}}>
-    <span className="is-pulled-left">{price}</span>
-    <span className="is-pulled-right">
-      <ButtonAddFavourite id={id} />
-    </span>
-  </div>
-)
 
 const cardButtons = (
   <footer className="card-footer">
@@ -119,14 +110,9 @@ Card.propTypes = {
   withButtons: PropTypes.bool,
   withHeader: PropTypes.bool,
   withDescription: PropTypes.bool,
+  withImage: PropTypes.bool,
   showPriceInline: PropTypes.bool,
-  id: PropTypes.string,
-  price: PropTypes.object,
-  image: PropTypes.string,
-  header: PropTypes.string,
-  measurements: PropTypes.string,
-  description: PropTypes.string,
-  creators: PropTypes.string,
+  item: PropTypes.object.isRequired
 };
 
 export default Card;

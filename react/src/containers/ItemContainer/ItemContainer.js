@@ -20,22 +20,19 @@ class ItemContainer extends Component {
             <div className="columns">
               <div className="column is-one-third is-paddingless">
                 <Card
-                  id={item.id}
-                  image={item.image}
+                  withImage
+                  item={item}
                 />
               </div>
               <div className="column is-paddingless">
                 <Card
                   withHeader
                   withButtons
-                  header={item.title}
-                  price={item.price}
-                  measurements={item.measurements.display}
+                  item={item}
                 />
                 <Card
                   withDescription
-                  description={item.description}
-                  creators={item.creators}
+                  item={item}
                 />
               </div>
             </div>
