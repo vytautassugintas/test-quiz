@@ -38,7 +38,7 @@ class Card extends Component {
     } = this.props;
 
     const textAlignmentClass = withHeader || withDescription
-      ? 'has-text-left is-red'
+      ? 'has-text-left'
       : 'has-text-centered'
 
     return (
