@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types';
@@ -45,6 +45,7 @@ const NoMatch = () => (
     <h3>
       Page not found 404
     </h3>
+    <Link to='/'>To browse</Link>
   </div>
 );
 
