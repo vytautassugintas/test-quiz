@@ -10,7 +10,8 @@ function itemReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case actionTypes.FETCH_ITEM_REQUEST:
       return Object.assign({}, state, {
-        isLoading: true
+        isLoading: true,
+        item: {}
       });
 
     case actionTypes.FETCH_ITEM_FAILURE:

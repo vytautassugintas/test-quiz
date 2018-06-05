@@ -34,21 +34,23 @@ class NavBar extends Component {
     const showSellerLogo = this.props.location.pathname !== '/';
 
     return (
-      <nav style={navStyle} aria-label="main navigation">
-        {
-          showSellerLogo && !isLoading
-            ? <div className="has-text-centered">
-                <span style={{cursor: 'pointer'}} className="is-pulled-left">
-                  <i 
-                    className="fas fa-chevron-left"
-                    onClick={this.routeHome}  
-                  />
-                </span>
-                <img src={this.getSellerLogo(item)} alt={`company ${item.seller.company} logo`}/>
-              </div>
-            : <p className="is-size-5 has-text-centered">{staticStrings.page.title.browsePage}</p>
-        }
-      </nav>
+      Object.keys(item).length
+      ? <nav style={navStyle} aria-label="main navigation">
+          {
+            showSellerLogo && !isLoading
+              ? <div className="has-text-centered">
+                  <span style={{cursor: 'pointer'}} className="is-pulled-left">
+                    <i 
+                      className="fas fa-chevron-left"
+                      onClick={this.routeHome}  
+                    />
+                  </span>
+                  <img src={this.getSellerLogo(item)} alt={`company ${item.seller.company} logo`}/>
+                </div>
+              : <p className="is-size-5 has-text-centered">{staticStrings.page.title.browsePage}</p>
+          }
+        </nav>
+      : null
     );
   }
 }

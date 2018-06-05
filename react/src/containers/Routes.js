@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types';
@@ -26,8 +26,11 @@ class Routes extends Component {
       loaded 
         ? <div>
             <NavBar />
-            <Route exact path="/" component={BrowseContainer} />
-            <Route path="/item/:id" component={ItemContainer} />
+            <Switch>
+              <Route exact path="/" component={BrowseContainer} />
+              <Route path="/item/:id" component={ItemContainer} />
+              <Route component={NoMatch} />
+            </Switch>
           </div>
         : <div className="has-text-centered">
             This should be loader or error (hint: start server 
@@ -36,6 +39,14 @@ class Routes extends Component {
     );
   }
 }
+
+const NoMatch = () => (
+  <div>
+    <h3>
+      Page not found 404
+    </h3>
+  </div>
+);
 
 const mapStateToProps = state => ({
   favourites: state.favourites

@@ -8,7 +8,8 @@ it('should set isLoading to true when request starts', () => {
     }, {
       type: actionTypes.FETCH_ITEM_REQUEST
     })).toEqual({
-    isLoading: true
+      item: {},
+      isLoading: true
   })
 });
 
