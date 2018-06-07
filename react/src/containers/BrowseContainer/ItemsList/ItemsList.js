@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Card from '../../../components/Card';
+// import Card from '../../../components/Card';
+import Item from './Item';
 
 class ItemList extends Component {
   static get propTypes(){
@@ -17,13 +18,18 @@ class ItemList extends Component {
       <div className='columns is-multiline is-mobile is-centered'>
         {
           items.map(item => (
-            <Card
-              showPriceInline
-              withImage
+            <Item
               key={item.id}
               item={item}
-              onImageClick={() => this.props.onItemClick(item.id)}
+              onItemClick={() => this.props.onItemClick(item.id)}
             />
+            // <Card
+            //   showPriceInline
+            //   withImage
+            //   key={item.id}
+            //   item={item}
+            //   onImageClick={() => this.props.onItemClick(item.id)}
+            // />
           ))
         }
       </div>

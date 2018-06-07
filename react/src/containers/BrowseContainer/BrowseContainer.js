@@ -54,7 +54,10 @@ class BrowseContainer extends Component {
 
     return (
       <div className="container">
-        <ItemsList onItemClick={this.handleItemClick} items={items}/>
+        <ItemsList 
+          onItemClick={this.handleItemClick}
+          items={items}
+        />
         <div className="has-text-centered padding-md">
         {
           isLoadMoreVissible
@@ -63,7 +66,6 @@ class BrowseContainer extends Component {
               </a>
            : null
         }
-          
         </div>
       </div>
     );

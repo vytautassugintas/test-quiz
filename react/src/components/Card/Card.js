@@ -4,17 +4,19 @@ import PropTypes from 'prop-types';
 class Card extends Component {
   static get propTypes(){
     return {
+      hasTextCenter: PropTypes.bool,
       content: PropTypes.object,
       footerButtons: PropTypes.array
     }
   }
 
   render() {
-    const { content, footerButtons } = this.props;
-
+    const { content, footerButtons, hasTextCenter } = this.props;
+    const textAlignmentClass = hasTextCenter ? 'has-text-centered' : 'has-text-left';
+    
     return (
       <div className="card margins-md">
-        <div className="card-content">
+        <div className={`card-content ${textAlignmentClass}`}>
           {
             content
           }
