@@ -21,18 +21,19 @@ class ButtonAddFavourite extends Component {
       isFavourite: favourites.items.includes(id)
     }
   }
+
+  static getDerivedStateFromProps(nextProps){
+      return { 
+        isFavourite: nextProps.favourites.items.includes(nextProps.id) 
+      }
+  }
   
   handleClick(id) {
-    this.setState({
-      isFavourite: !this.state.isFavourite
-    },
-    () => {
-      if (this.state.isFavourite){
-        this.props.dispatch(actions.addFavourite(id));
-      } else {
-        this.props.dispatch(actions.removeFavouriteById(id));
-      }
-    });
+    if (!this.state.isFavourite){
+      this.props.dispatch(actions.addFavourite(id));
+    } else {
+      this.props.dispatch(actions.removeFavouriteById(id));
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState){
@@ -42,7 +43,7 @@ class ButtonAddFavourite extends Component {
   render() {
     const { id } = this.props;
     const { isFavourite } = this.state;
-
+    
     const heartClass = isFavourite ? 'fas fa-heart is-red' : 'far fa-heart';
 
     return (

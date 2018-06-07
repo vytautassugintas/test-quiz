@@ -11,8 +11,7 @@ import NavBar from '../components/NavBar';
 class Routes extends Component {
   static get propTypes() {
     return {
-      dispatch: PropTypes.func.isRequired,
-      favourites: PropTypes.object.isRequired
+      dispatch: PropTypes.func.isRequired
     }
   }
 
@@ -21,21 +20,15 @@ class Routes extends Component {
   }
 
   render() {
-    const { loaded } = this.props.favourites;
-    return (
-      loaded 
-        ? <div>
-            <NavBar />
-            <Switch>
-              <Route exact path="/" component={BrowseContainer} />
-              <Route path="/item/:id" component={ItemContainer} />
-              <Route component={NoMatch} />
-            </Switch>
-          </div>
-        : <div className="has-text-centered">
-            This should be loader or error (hint: start server 
-            <code>yarn dev</code> or <code>npm run dev</code>)
-          </div>  
+    return ( 
+        <div>
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={BrowseContainer} />
+            <Route path="/item/:id" component={ItemContainer} />
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
     );
   }
 }
@@ -49,8 +42,4 @@ const NoMatch = () => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  favourites: state.favourites
-})
-
-export default withRouter(connect(mapStateToProps)(Routes));
+export default withRouter(connect()(Routes));

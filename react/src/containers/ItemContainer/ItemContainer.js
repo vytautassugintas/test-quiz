@@ -48,6 +48,7 @@ class ItemContainer extends Component {
               <div className="columns">
                 <div className="column is-one-third is-paddingless">
                   <Card
+                    hasTextCenter
                     content={
                       <div>
                         <span className="is-pulled-right">
@@ -92,10 +93,6 @@ class ItemContainer extends Component {
     );
   }
 }
-
-// const itemInformation = item => (
-  
-// )
 
 const mapStateToProps = state => ({
   item: state.singleItem

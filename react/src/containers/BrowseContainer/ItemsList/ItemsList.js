@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import Card from '../../../components/Card';
 import Item from './Item';
 
 class ItemList extends Component {
@@ -23,13 +22,6 @@ class ItemList extends Component {
               item={item}
               onItemClick={() => this.props.onItemClick(item.id)}
             />
-            // <Card
-            //   showPriceInline
-            //   withImage
-            //   key={item.id}
-            //   item={item}
-            //   onImageClick={() => this.props.onItemClick(item.id)}
-            // />
           ))
         }
       </div>
