@@ -39,7 +39,7 @@ export const fetchFavouritesSuccess = payload => ({
 })
 
 export function fetchItems({start = 0, limit = 9} = {}){
-  return function (dispatch, getState) {
+  return function (dispatch) {
     dispatch(fetchItemsRequest())
     return api.fetchItems({start, limit})
       .then(response => {
